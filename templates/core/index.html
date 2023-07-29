@@ -1,8 +1,13 @@
-{% extends 'partials/base.html' %}
+{% if request.user.is_authenticated %}
+    
+    <h4>Hello {{request.user.username| title }}</h4>
+
+    <a href="{% url 'userauths:sign-out' %}">Sign Out</a>
 
 
-{% block content %}
-Hello from index 
+{% else %}
+{% comment %} <a href="{% url 'userauths:sign-up' %}">Sign In</a> {% endcomment %}
+{% comment %} <a href="{% url 'userauths:sign-out' %}">Sign Up</a> {% endcomment %}
 
 
-{% endblock content %}
+{% endif %}
