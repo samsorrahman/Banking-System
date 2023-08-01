@@ -5,6 +5,6 @@ app_name = "account"
 
 urlpatterns = [
     # path("dashboard/", views.dashboard, name="dashboard"),
-    # path("", views.account, name="account"),
+    path("", views.account, name="account"),
     path("kyc-reg/", views.kyc_registration, name="kyc-reg"),
 ]

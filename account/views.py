@@ -6,8 +6,30 @@ from django.contrib.auth.decorators import login_required
 # from core.forms import CreditCardForm
 # from core.models import CreditCard, Notification, Transaction
 
-
 # @login_required
+def account(request):
+    if request.user.is_authenticated:
+        try:
+            kyc = KYC.objects.get(user=request.user)
+        except:
+            messages.warning(request, "You need to submit your kyc")
+            return redirect("account:kyc-reg")
+        
+        account = Account.objects.get(user=request.user)
+    else:
+        messages.warning(request, "You need to login to access the dashboard")
+        return redirect("userauths:sign-in")
+
+    context = {
+        "kyc":kyc,
+        "account":account,
+    }
+    return render(request, "account/account.html", context)
+
+
+
+
+@login_required
 def kyc_registration(request):
     user = request.user
     account = Account.objects.get(user=user)
@@ -25,7 +47,7 @@ def kyc_registration(request):
             new_form.account = account
             new_form.save()
             messages.success(request, "KYC Form submitted successfully, In review now.")
-            # return redirect("account:account")
+            return redirect("account:account")
     else:
         form = KYCForm(instance=kyc)
     context = {
