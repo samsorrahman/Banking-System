@@ -36,12 +36,10 @@
                                     <span class="mdr">{{ a.user.email }}</span>
                                 </div>
                             </div>
-                            <div class="right">
-                                <a href="">Choose</a>
-                            </div>
-                            {% comment %} <div class="right">
+                          
+                           <div class="right">
                                 <a href="{% url 'core:amount-transfer' a.account_number  %}">Choose</a>
-                            </div> {% endcomment %}
+                            </div>
                         </div>
                         {% empty %}
                         <div>
