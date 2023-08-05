@@ -1,5 +1,5 @@
 from django.contrib import admin
-from core.models import Transaction, CreditCard, Notification
+from core.models import Transaction
 
 class TransactionAdmin(admin.ModelAdmin):
     list_editable = ['amount', 'status', 'transaction_type']
