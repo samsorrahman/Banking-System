@@ -30,6 +30,8 @@ urlpatterns = [
     path("amount-request-process/<account_number>/", payment_request.AmountRequestProcess, name="amount-request-process"),
     path("amount-request-confirmation/<account_number>/<transaction_id>/", payment_request.AmountRequestConfirmation, name="amount-request-confirmation"),
 
+    path("amount-request-final-process/<account_number>/<transaction_id>/", payment_request.AmountRequestFinalProcess, name="amount-request-final-process"),
+    path("amount-request-completed/<account_number>/<transaction_id>/", payment_request.RequestCompleted, name="amount-request-completed"),
 
 ]
 
