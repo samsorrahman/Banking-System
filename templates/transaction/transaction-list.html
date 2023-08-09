@@ -268,8 +268,8 @@
                                                             <td>
                                                                 
                                                                 {% if s.status == "request_sent" %}
-                                                                    {% comment %} <a href="{% url 'core:settlement-confirmation' s.sender.account.account_number s.transaction_id %}" class="btn btn-primary"><i class="fas fa-check-circle"></i> Settle</a> {% endcomment %}
-                                                                    <a href="{% url 'core:transaction-detail' s.transaction_id %}" class=" btn btn-danger"> <i class="fas fa-x"></i> Cancel</a>
+                                                                     <a href="{% url 'core:settlement-confirmation' s.sender.account.account_number s.transaction_id %}" class="btn btn-primary"><i class="fas fa-check-circle"></i> Settle</a> 
+                                                               
                                                                 {% endif %}
 
                                                                 {% if s.status == "request_settled" %}
