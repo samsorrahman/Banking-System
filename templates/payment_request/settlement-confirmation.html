@@ -131,8 +131,8 @@
                                         <div class="main-content">
                                             <h4>Confirm Transfer!</h4>
                                             <p>Enter pin number below</p>
-                                            {% comment %} <form action="{% url 'core:settlement-processing' account.account_number transaction.transaction_id  %}" method="POST"> {% endcomment %}
-                                            <form action="" method="POST">
+                                            <form action="{% url 'core:settlement-processing' account.account_number transaction.transaction_id  %}" method="POST">
+                                       
                                             
                                                 {% csrf_token %}
                                                 <div class="userInput">
